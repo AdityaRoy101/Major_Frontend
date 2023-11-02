@@ -4,7 +4,6 @@ import Navigation from './Components/Navigation/Navigation';
 import SignIn from './Components/SignIn/SignIn';
 import Register from './Components/Register/Register';
 import { Component } from 'react';
-
 const initialState = {
   input: '',
   route: 'SignIn',
@@ -17,7 +16,6 @@ const initialState = {
     joined: ''
   }
 }
-
 class App extends Component {
   constructor()
   {
@@ -25,7 +23,6 @@ class App extends Component {
 
     this.state = initialState;
   }
-
   loadUser = (data) => {
     this.setState({user: {
       id: data.id,
@@ -34,11 +31,9 @@ class App extends Component {
       joined: data.joined
     }})
   }
-
   onInputChange = (event) => {
     this.setState({input: event.target.value})
   }
-
   onRouteChange = (route) => {
     if(route === 'signout')
     {
@@ -51,23 +46,16 @@ class App extends Component {
 
     this.setState({route: route});
   }
-
   render()
   {
     const {isSignedIn, route} = this.state;
   return (
     <div className="App">
-
-      {/* <Particlebackground /> */}
-
       <Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange}/>
-
       { route === 'home'
-
       ? <div>
 
         </div>
-
       : 
         (route === 'SignIn' 
         ? <SignIn loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
